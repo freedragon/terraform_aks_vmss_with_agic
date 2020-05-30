@@ -22,6 +22,16 @@ resource "azurerm_user_assigned_identity" "clusterIdentity" {
   tags = var.tags
 }
 
+# User Assigned Identities for Node Resource Group
+resource "azurerm_user_assigned_identity" "clusterNodeRGIdentity" {
+  resource_group_name = azurerm_kubernetes_cluster.k8s.node_resource_group
+  location            = azurerm_kubernetes_cluster.k8s.location
+
+  name = var.azurerm_user_assigned_nrg_identity_name
+  tags = var.tags
+  depends_on = [azurerm_kubernetes_cluster.k8s, azurerm_virtual_network.cmbt_tf_poc_vnet, azurerm_public_ip.cmbt_tf_poc_pip1,azurerm_application_gateway.network]
+}
+
 resource "azurerm_virtual_network" "cmbt_tf_poc_vnet" {
   name                = var.virtual_network_name
   location            = data.azurerm_resource_group.cmbt_tf_poc_resourcegroup.location
@@ -155,6 +165,20 @@ resource "azurerm_role_assignment" "ra4" {
   role_definition_name  = "Reader"
   principal_id          = azurerm_user_assigned_identity.clusterIdentity.principal_id
   depends_on            = [azurerm_user_assigned_identity.clusterIdentity, azurerm_application_gateway.network]
+}
+
+resource "azurerm_role_assignment" "ranrg1" {
+  principal_id          = azurerm_user_assigned_identity.clusterNodeRGIdentity.principal_id
+  role_definition_name  = "Contributor"
+  scope                = azurerm_application_gateway.network.id
+  depends_on            = [azurerm_user_assigned_identity.clusterNodeRGIdentity]
+}
+
+resource "azurerm_role_assignment" "ranrg2" {
+  principal_id          = azurerm_user_assigned_identity.clusterNodeRGIdentity.principal_id
+  role_definition_name  = "Reader"
+  scope                 = data.azurerm_resource_group.cmbt_tf_poc_resourcegroup.id
+  depends_on            = [azurerm_user_assigned_identity.clusterNodeRGIdentity]
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {

@@ -8,6 +8,7 @@ aks_service_principal_client_secret = "<sp_client_secret>"
 aks_service_principal_object_id     = "<sp_object_id>"
 
 azurerm_user_assigned_identity_name = "cmbt-tf-aks02-id"
+azurerm_user_assigned_nrg_identity_name = "cmbt-tf-aks02-nrg-id"
 
 virtual_network_name                = "cmbt-tf-poc-vnet"
 virtual_network_address_prefix      = "123.0.0.0/8"

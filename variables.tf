@@ -18,6 +18,10 @@ variable "aks_service_principal_object_id" {
   description = "Object ID of the service principal."
 }
 
+variable "azurerm_user_assigned_nrg_identity_name" {
+  description = "Name of user assigned identiy for node resource group"
+}
+
 variable "azurerm_user_assigned_identity_name" {
   description = "Name of user assigned identiy"
 }
