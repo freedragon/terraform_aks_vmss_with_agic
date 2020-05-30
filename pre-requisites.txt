@@ -1,0 +1,84 @@
+https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
+
+# List up sps
+az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
+
+az ad sp create-for-rbac --name http://<Service_Principal_Name>
+az ad sp create-for-rbac --name http://commbot-tf-aks01
+
+<quote>
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$ az ad sp create-for-rbac --name http://commbot-tf-aks01
+Creating a role assignment under the scope of "/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c"
+{
+  "appId": "947593ca-3295-4af2-b0a7-6bafcc210f7c",
+  "displayName": "commbot-tf-aks01",
+  "name": "http://commbot-tf-aks01",
+  "password": "96e3bf9a-6d72-4910-be30-b6f6f73a6bec",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+</quote>
+
+az ad sp list --display-name <displayName from create-for-rbac>
+
+az ad sp list --display-name commbot-tf-aks01
+
+<quote>
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$ az ad sp list --display-name commbot-tf-aks01
+[
+  {
+    "accountEnabled": "True",
+    "addIns": [],
+    "alternativeNames": [],
+    "appDisplayName": "commbot-tf-aks01",
+    "appId": "947593ca-3295-4af2-b0a7-6bafcc210f7c",
+    "appOwnerTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "appRoleAssignmentRequired": false,
+    "appRoles": [],
+    "applicationTemplateId": null,
+    "deletionTimestamp": null,
+    "displayName": "commbot-tf-aks01",
+    "errorUrl": null,
+    "homepage": "https://commbot-tf-aks01",
+    "informationalUrls": {
+      "marketing": null,
+      "privacy": null,
+      "support": null,
+      "termsOfService": null
+    },
+    "keyCredentials": [],
+    "logoutUrl": null,
+    "notificationEmailAddresses": [],
+    "oauth2Permissions": [
+      {
+        "adminConsentDescription": "Allow the application to access commbot-tf-aks01 on behalf of the signed-in user.",
+        "adminConsentDisplayName": "Access commbot-tf-aks01",
+        "id": "8fce6ec0-264f-4cdf-bf8e-8daacdc662ca",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to access commbot-tf-aks01 on your behalf.",
+        "userConsentDisplayName": "Access commbot-tf-aks01",
+        "value": "user_impersonation"
+      }
+    ],
+    "objectId": "aeb0d2fe-5dcd-4ba1-8d67-ea52c662e56d",
+    "objectType": "ServicePrincipal",
+    "odata.type": "Microsoft.DirectoryServices.ServicePrincipal",
+    "passwordCredentials": [],
+    "preferredSingleSignOnMode": null,
+    "preferredTokenSigningKeyEndDateTime": null,
+    "preferredTokenSigningKeyThumbprint": null,
+    "publisherName": "Microsoft",
+    "replyUrls": [],
+    "samlMetadataUrl": null,
+    "samlSingleSignOnSettings": null,
+    "servicePrincipalNames": [
+      "http://commbot-tf-aks01",
+      "947593ca-3295-4af2-b0a7-6bafcc210f7c"
+    ],
+    "servicePrincipalType": "Application",
+    "signInAudience": "AzureADMyOrg",
+    "tags": [],
+    "tokenEncryptionKeyId": null
+  }
+]
+</quote>

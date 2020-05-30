@@ -1,0 +1,851 @@
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$ terraform init -backend-config="storage_account_name=yonghptrfmstrg" -backend-config="container_name=tfstate" -backend-config="access_key=gokQlYx+dQfJ1pL4mKuxUck9DWUyXSZlRjyd1zXnNPAlFt7UlSZRZ3eZsQudB/oWpjlVo1X+g4IW7VtUhDFoiQ==" -backend-config="key=cmbt-tf-aks.microsoft.tfstate"
+
+Initializing the backend...
+
+Initializing provider plugins...
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$ terraform plan -out out.plan
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 128, in resource "azurerm_application_gateway" "network":
+ 128:   depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 128, in resource "azurerm_application_gateway" "network":
+ 128:   depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 136, in resource "azurerm_role_assignment" "ra1":
+ 136:   depends_on = ["azurerm_virtual_network.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 143, in resource "azurerm_role_assignment" "ra2":
+ 143:   depends_on           = ["azurerm_user_assigned_identity.testIdentity"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 150, in resource "azurerm_role_assignment" "ra3":
+ 150:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 150, in resource "azurerm_role_assignment" "ra3":
+ 150:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 157, in resource "azurerm_role_assignment" "ra4":
+ 157:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 157, in resource "azurerm_role_assignment" "ra4":
+ 157:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 213, in resource "azurerm_kubernetes_cluster" "k8s":
+ 213:   depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 213, in resource "azurerm_kubernetes_cluster" "k8s":
+ 213:   depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted type constraints are deprecated
+
+  on variables.tf line 121, in variable "tags":
+ 121:   type = "map"
+
+Terraform 0.11 and earlier required type constraints to be given in quotes,
+but that form is now deprecated and will be removed in a future version of
+Terraform. To silence this warning, remove the quotes around "map" and write
+map(string) instead to explicitly indicate that the map elements are strings.
+
+Acquiring state lock. This may take a few moments...
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+data.azurerm_resource_group.rg: Refreshing state...
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # data.azurerm_subnet.appgwsubnet will be read during apply
+  # (config refers to values not yet known)
+ <= data "azurerm_subnet" "appgwsubnet"  {
+      + address_prefix                                 = (known after apply)
+      + enforce_private_link_endpoint_network_policies = (known after apply)
+      + enforce_private_link_service_network_policies  = (known after apply)
+      + id                                             = (known after apply)
+      + name                                           = "cmbt-tf-apgw-subnet"
+      + network_security_group_id                      = (known after apply)
+      + resource_group_name                            = "cmbt-tf-aks-rg"
+      + route_table_id                                 = (known after apply)
+      + service_endpoints                              = (known after apply)
+      + virtual_network_name                           = "cmbt-tf-poc-vnet"
+
+      + timeouts {
+          + read = (known after apply)
+        }
+    }
+
+  # data.azurerm_subnet.kubesubnet will be read during apply
+  # (config refers to values not yet known)
+ <= data "azurerm_subnet" "kubesubnet"  {
+      + address_prefix                                 = (known after apply)
+      + enforce_private_link_endpoint_network_policies = (known after apply)
+      + enforce_private_link_service_network_policies  = (known after apply)
+      + id                                             = (known after apply)
+      + name                                           = "cmbt-tf-aks-subnet"
+      + network_security_group_id                      = (known after apply)
+      + resource_group_name                            = "cmbt-tf-aks-rg"
+      + route_table_id                                 = (known after apply)
+      + service_endpoints                              = (known after apply)
+      + virtual_network_name                           = "cmbt-tf-poc-vnet"
+
+      + timeouts {
+          + read = (known after apply)
+        }
+    }
+
+  # azurerm_application_gateway.network will be created
+  + resource "azurerm_application_gateway" "network" {
+      + id                  = (known after apply)
+      + location            = "koreacentral"
+      + name                = "cmbt-tf-apgw"
+      + resource_group_name = "cmbt-tf-aks-rg"
+      + tags                = {
+          + "source" = "terraform"
+        }
+
+      + backend_address_pool {
+          + id   = (known after apply)
+          + name = "cmbt-tf-poc-vnet-beap"
+        }
+
+      + backend_http_settings {
+          + cookie_based_affinity               = "Disabled"
+          + id                                  = (known after apply)
+          + name                                = "cmbt-tf-poc-vnet-be-htst"
+          + pick_host_name_from_backend_address = false
+          + port                                = 80
+          + probe_id                            = (known after apply)
+          + protocol                            = "Http"
+          + request_timeout                     = 1
+        }
+
+      + frontend_ip_configuration {
+          + id                            = (known after apply)
+          + name                          = "cmbt-tf-poc-vnet-feip"
+          + private_ip_address            = (known after apply)
+          + private_ip_address_allocation = (known after apply)
+          + public_ip_address_id          = (known after apply)
+          + subnet_id                     = (known after apply)
+        }
+
+      + frontend_port {
+          + id   = (known after apply)
+          + name = "cmbt-tf-poc-vnet-feport"
+          + port = 80
+        }
+      + frontend_port {
+          + id   = (known after apply)
+          + name = "httpsPort"
+          + port = 443
+        }
+
+      + gateway_ip_configuration {
+          + id        = (known after apply)
+          + name      = "appGatewayIpConfig"
+          + subnet_id = (known after apply)
+        }
+
+      + http_listener {
+          + frontend_ip_configuration_id   = (known after apply)
+          + frontend_ip_configuration_name = "cmbt-tf-poc-vnet-feip"
+          + frontend_port_id               = (known after apply)
+          + frontend_port_name             = "cmbt-tf-poc-vnet-feport"
+          + id                             = (known after apply)
+          + name                           = "cmbt-tf-poc-vnet-httplstn"
+          + protocol                       = "Http"
+          + ssl_certificate_id             = (known after apply)
+        }
+
+      + identity {
+          + identity_ids = (known after apply)
+          + type         = (known after apply)
+        }
+
+      + request_routing_rule {
+          + backend_address_pool_id    = (known after apply)
+          + backend_address_pool_name  = "cmbt-tf-poc-vnet-beap"
+          + backend_http_settings_id   = (known after apply)
+          + backend_http_settings_name = "cmbt-tf-poc-vnet-be-htst"
+          + http_listener_id           = (known after apply)
+          + http_listener_name         = "cmbt-tf-poc-vnet-httplstn"
+          + id                         = (known after apply)
+          + name                       = "cmbt-tf-poc-vnet-rqrt"
+          + redirect_configuration_id  = (known after apply)
+          + rewrite_rule_set_id        = (known after apply)
+          + rule_type                  = "Basic"
+          + url_path_map_id            = (known after apply)
+        }
+
+      + sku {
+          + capacity = 2
+          + name     = "Standard_v2"
+          + tier     = "Standard_v2"
+        }
+
+      + ssl_policy {
+          + cipher_suites        = (known after apply)
+          + disabled_protocols   = (known after apply)
+          + min_protocol_version = (known after apply)
+          + policy_name          = (known after apply)
+          + policy_type          = (known after apply)
+        }
+    }
+
+  # azurerm_kubernetes_cluster.k8s will be created
+  + resource "azurerm_kubernetes_cluster" "k8s" {
+      + dns_prefix            = "cmbt-tf-aks"
+      + fqdn                  = (known after apply)
+      + id                    = (known after apply)
+      + kube_admin_config     = (known after apply)
+      + kube_admin_config_raw = (sensitive value)
+      + kube_config           = (known after apply)
+      + kube_config_raw       = (sensitive value)
+      + kubernetes_version    = (known after apply)
+      + location              = "koreacentral"
+      + name                  = "cmbt-tf-aks-qa01"
+      + node_resource_group   = (known after apply)
+      + private_fqdn          = (known after apply)
+      + resource_group_name   = "cmbt-tf-aks-rg"
+      + tags                  = {
+          + "source" = "terraform"
+        }
+
+      + addon_profile {
+
+          + http_application_routing {
+              + enabled                            = false
+              + http_application_routing_zone_name = (known after apply)
+            }
+        }
+
+      + default_node_pool {
+          + enable_auto_scaling = true
+          + max_count           = 30
+          + max_pods            = 60
+          + min_count           = 2
+          + name                = "defagentpool"
+          + node_count          = 3
+          + os_disk_size_gb     = 256
+          + type                = "VirtualMachineScaleSets"
+          + vm_size             = "Standard_D3_v2"
+          + vnet_subnet_id      = (known after apply)
+        }
+
+      + linux_profile {
+          + admin_username = "yonghp"
+
+          + ssh_key {
+              + key_data = <<~EOT
+                    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFUnPCQRIUv/4QEYzXcoy/LPgoSKMN83w3ekL3NQxaIzhb3YnIUFqovqfcm3xlomkc9UORz8n/k+btHcAOeql0XG/mm9BVsxzoLPQghXEYAPJ/4OEJr6qM8a7B7uDv0wWYnuylBKBhlRrfIxLU3kd+lSrzDexHlTjHX93EkJf1pqBeexxXhAtZneW6RmOkSR5wXAb2e1UhjgF4HgMSsn0/R1QC6vdBdUUEKq5UU84NILaRNnJgWcQgzF3/hgD4/fmaIHGft/ZTCYCA4AR8dgCYUtkzu//vgu7Dm59o2SJDmpDOXxZl6pbUDL1Szrh2YS6yaDdf7kClw+U9lMXXDWCd yonghp@yonghpbook01
+                EOT
+            }
+        }
+
+      + network_profile {
+          + dns_service_ip     = "10.0.0.10"
+          + docker_bridge_cidr = "172.17.0.1/16"
+          + load_balancer_sku  = "standard"
+          + network_plugin     = "azure"
+          + network_policy     = (known after apply)
+          + pod_cidr           = (known after apply)
+          + service_cidr       = "10.0.0.0/16"
+
+          + load_balancer_profile {
+              + effective_outbound_ips    = (known after apply)
+              + managed_outbound_ip_count = (known after apply)
+              + outbound_ip_address_ids   = (known after apply)
+              + outbound_ip_prefix_ids    = (known after apply)
+            }
+        }
+
+      + role_based_access_control {
+          + enabled = (known after apply)
+
+          + azure_active_directory {
+              + client_app_id     = (known after apply)
+              + server_app_id     = (known after apply)
+              + server_app_secret = (sensitive value)
+              + tenant_id         = (known after apply)
+            }
+        }
+
+      + service_principal {
+          + client_id     = "db7ec8ec-003f-426b-a7ec-f631231fe18c"
+          + client_secret = (sensitive value)
+        }
+    }
+
+  # azurerm_public_ip.test will be created
+  + resource "azurerm_public_ip" "test" {
+      + allocation_method       = "Static"
+      + fqdn                    = (known after apply)
+      + id                      = (known after apply)
+      + idle_timeout_in_minutes = 4
+      + ip_address              = (known after apply)
+      + ip_version              = "IPv4"
+      + location                = "koreacentral"
+      + name                    = "cmbt-tf-pip1"
+      + resource_group_name     = "cmbt-tf-aks-rg"
+      + sku                     = "Standard"
+      + tags                    = {
+          + "source" = "terraform"
+        }
+    }
+
+  # azurerm_role_assignment.ra1 will be created
+  + resource "azurerm_role_assignment" "ra1" {
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "2dafb58c-172d-45c3-a975-f04737b14949"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Network Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.ra2 will be created
+  + resource "azurerm_role_assignment" "ra2" {
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "2dafb58c-172d-45c3-a975-f04737b14949"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Managed Identity Operator"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.ra3 will be created
+  + resource "azurerm_role_assignment" "ra3" {
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.ra4 will be created
+  + resource "azurerm_role_assignment" "ra4" {
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = "/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg"
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_user_assigned_identity.testIdentity will be created
+  + resource "azurerm_user_assigned_identity" "testIdentity" {
+      + client_id           = (known after apply)
+      + id                  = (known after apply)
+      + location            = "koreacentral"
+      + name                = "cmbt-tf-poc-identity"
+      + principal_id        = (known after apply)
+      + resource_group_name = "cmbt-tf-aks-rg"
+      + tags                = {
+          + "source" = "terraform"
+        }
+    }
+
+  # azurerm_virtual_network.test will be created
+  + resource "azurerm_virtual_network" "test" {
+      + address_space       = [
+          + "123.0.0.0/8",
+        ]
+      + id                  = (known after apply)
+      + location            = "koreacentral"
+      + name                = "cmbt-tf-poc-vnet"
+      + resource_group_name = "cmbt-tf-aks-rg"
+      + tags                = {
+          + "source" = "terraform"
+        }
+
+      + subnet {
+          + address_prefix = "123.0.0.0/16"
+          + id             = (known after apply)
+          + name           = "cmbt-tf-aks-subnet"
+        }
+      + subnet {
+          + address_prefix = "123.1.0.0/16"
+          + id             = (known after apply)
+          + name           = "cmbt-tf-apgw-subnet"
+        }
+    }
+
+Plan: 9 to add, 0 to change, 0 to destroy.
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 128, in resource "azurerm_application_gateway" "network":
+ 128:   depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 128, in resource "azurerm_application_gateway" "network":
+ 128:   depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 136, in resource "azurerm_role_assignment" "ra1":
+ 136:   depends_on = ["azurerm_virtual_network.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 143, in resource "azurerm_role_assignment" "ra2":
+ 143:   depends_on           = ["azurerm_user_assigned_identity.testIdentity"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 150, in resource "azurerm_role_assignment" "ra3":
+ 150:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 150, in resource "azurerm_role_assignment" "ra3":
+ 150:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 157, in resource "azurerm_role_assignment" "ra4":
+ 157:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 157, in resource "azurerm_role_assignment" "ra4":
+ 157:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 213, in resource "azurerm_kubernetes_cluster" "k8s":
+ 213:   depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 213, in resource "azurerm_kubernetes_cluster" "k8s":
+ 213:   depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted type constraints are deprecated
+
+  on variables.tf line 121, in variable "tags":
+ 121:   type = "map"
+
+Terraform 0.11 and earlier required type constraints to be given in quotes,
+but that form is now deprecated and will be removed in a future version of
+Terraform. To silence this warning, remove the quotes around "map" and write
+map(string) instead to explicitly indicate that the map elements are strings.
+
+
+------------------------------------------------------------------------
+
+This plan was saved to: out.plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "out.plan"
+
+Releasing state lock. This may take a few moments...
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$ terraform plan -out out.plan^C
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$ terraform apply "out.plan"
+Acquiring state lock. This may take a few moments...
+azurerm_public_ip.test: Creating...
+azurerm_user_assigned_identity.testIdentity: Creating...
+azurerm_virtual_network.test: Creating...
+azurerm_public_ip.test: Still creating... [10s elapsed]
+azurerm_virtual_network.test: Still creating... [10s elapsed]
+azurerm_user_assigned_identity.testIdentity: Still creating... [10s elapsed]
+azurerm_public_ip.test: Creation complete after 12s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg/providers/Microsoft.Network/publicIPAddresses/cmbt-tf-pip1]
+azurerm_user_assigned_identity.testIdentity: Creation complete after 12s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/cmbt-tf-aks-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-poc-identity]
+azurerm_role_assignment.ra2: Creating...
+azurerm_virtual_network.test: Still creating... [20s elapsed]
+azurerm_role_assignment.ra2: Still creating... [10s elapsed]
+azurerm_virtual_network.test: Creation complete after 26s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg/providers/Microsoft.Network/virtualNetworks/cmbt-tf-poc-vnet]
+data.azurerm_subnet.appgwsubnet: Refreshing state...
+data.azurerm_subnet.kubesubnet: Refreshing state...
+azurerm_role_assignment.ra1: Creating...
+azurerm_application_gateway.network: Creating...
+azurerm_role_assignment.ra2: Creation complete after 14s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/cmbt-tf-aks-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-poc-identity/providers/Microsoft.Authorization/roleAssignments/f42ef0fd-0a09-3cc1-4b0a-b35637be3245]
+azurerm_role_assignment.ra1: Creation complete after 3s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg/providers/Microsoft.Network/virtualNetworks/cmbt-tf-poc-vnet/subnets/cmbt-tf-aks-subnet/providers/Microsoft.Authorization/roleAssignments/03afee44-2b32-d4df-0560-970ca2ddf8a1]
+azurerm_application_gateway.network: Still creating... [10s elapsed]
+azurerm_application_gateway.network: Still creating... [20s elapsed]
+azurerm_application_gateway.network: Still creating... [30s elapsed]
+azurerm_application_gateway.network: Still creating... [40s elapsed]
+azurerm_application_gateway.network: Still creating... [50s elapsed]
+azurerm_application_gateway.network: Still creating... [1m0s elapsed]
+azurerm_application_gateway.network: Still creating... [1m10s elapsed]
+azurerm_application_gateway.network: Still creating... [1m20s elapsed]
+azurerm_application_gateway.network: Still creating... [1m30s elapsed]
+azurerm_application_gateway.network: Still creating... [1m40s elapsed]
+azurerm_application_gateway.network: Still creating... [1m50s elapsed]
+azurerm_application_gateway.network: Still creating... [2m0s elapsed]
+azurerm_application_gateway.network: Still creating... [2m10s elapsed]
+azurerm_application_gateway.network: Still creating... [2m20s elapsed]
+azurerm_application_gateway.network: Still creating... [2m30s elapsed]
+azurerm_application_gateway.network: Still creating... [2m40s elapsed]
+azurerm_application_gateway.network: Still creating... [2m50s elapsed]
+azurerm_application_gateway.network: Still creating... [3m0s elapsed]
+azurerm_application_gateway.network: Still creating... [3m10s elapsed]
+azurerm_application_gateway.network: Still creating... [3m20s elapsed]
+azurerm_application_gateway.network: Still creating... [3m30s elapsed]
+azurerm_application_gateway.network: Still creating... [3m40s elapsed]
+azurerm_application_gateway.network: Still creating... [3m50s elapsed]
+azurerm_application_gateway.network: Still creating... [4m0s elapsed]
+azurerm_application_gateway.network: Still creating... [4m10s elapsed]
+azurerm_application_gateway.network: Still creating... [4m20s elapsed]
+azurerm_application_gateway.network: Still creating... [4m30s elapsed]
+azurerm_application_gateway.network: Creation complete after 4m35s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg/providers/Microsoft.Network/applicationGateways/cmbt-tf-apgw]
+azurerm_role_assignment.ra4: Creating...
+azurerm_role_assignment.ra3: Creating...
+azurerm_kubernetes_cluster.k8s: Creating...
+azurerm_role_assignment.ra3: Still creating... [10s elapsed]
+azurerm_role_assignment.ra4: Still creating... [10s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [10s elapsed]
+azurerm_role_assignment.ra3: Creation complete after 13s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg/providers/Microsoft.Network/applicationGateways/cmbt-tf-apgw/providers/Microsoft.Authorization/roleAssignments/1d12f0d0-2606-a286-69e9-165106c1d26b]
+azurerm_role_assignment.ra4: Creation complete after 16s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourceGroups/cmbt-tf-aks-rg/providers/Microsoft.Authorization/roleAssignments/f41add13-3d03-6d5a-267e-8cb5fa192c72]
+azurerm_kubernetes_cluster.k8s: Still creating... [20s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [30s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [40s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [50s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [1m0s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [1m10s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [1m20s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [1m30s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [1m40s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [1m50s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [2m0s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [2m10s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [2m20s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [2m30s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [2m40s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [2m50s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [3m0s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [3m10s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [3m20s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [3m30s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [3m40s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [3m50s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [4m0s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [4m10s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [4m20s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [4m30s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [4m40s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [4m50s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [5m0s elapsed]
+azurerm_kubernetes_cluster.k8s: Still creating... [5m10s elapsed]
+azurerm_kubernetes_cluster.k8s: Creation complete after 5m17s [id=/subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/cmbt-tf-aks-rg/providers/Microsoft.ContainerService/managedClusters/cmbt-tf-aks-qa01]
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 128, in resource "azurerm_application_gateway" "network":
+ 128:   depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 128, in resource "azurerm_application_gateway" "network":
+ 128:   depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 136, in resource "azurerm_role_assignment" "ra1":
+ 136:   depends_on = ["azurerm_virtual_network.test"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 143, in resource "azurerm_role_assignment" "ra2":
+ 143:   depends_on           = ["azurerm_user_assigned_identity.testIdentity"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 150, in resource "azurerm_role_assignment" "ra3":
+ 150:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 150, in resource "azurerm_role_assignment" "ra3":
+ 150:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 157, in resource "azurerm_role_assignment" "ra4":
+ 157:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 157, in resource "azurerm_role_assignment" "ra4":
+ 157:   depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 213, in resource "azurerm_kubernetes_cluster" "k8s":
+ 213:   depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted references are deprecated
+
+  on resources.tf line 213, in resource "azurerm_kubernetes_cluster" "k8s":
+ 213:   depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+
+Warning: Quoted type constraints are deprecated
+
+  on variables.tf line 121, in variable "tags":
+ 121:   type = "map"
+
+Terraform 0.11 and earlier required type constraints to be given in quotes,
+but that form is now deprecated and will be removed in a future version of
+Terraform. To silence this warning, remove the quotes around "map" and write
+map(string) instead to explicitly indicate that the map elements are strings.
+
+
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+client_certificate = LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvVENDQXVXZ0F3SUJBZ0lSQU1peXRHbzZMZmdOV2RpRjFHVUwvcnN3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdIaGNOTWpBd05USTNNRFl5TmpVeVdoY05Nakl3TlRJM01EWXpOalV5V2pBdwpNUmN3RlFZRFZRUUtFdzV6ZVhOMFpXMDZiV0Z6ZEdWeWN6RVZNQk1HQTFVRUF4TU1iV0Z6ZEdWeVkyeHBaVzUwCk1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBMHVRaVFndkVYdG8xM0hkcnpVbVEKL08wcnA1UjY2ckNDN2g5LzNHOEpLOHg5QVFMcGpmOVZGSnZzY2RXZmhDK0ZpYUszNXp6ZjFaQnhMdEJPMElYMQpjQTNvdDRDdTdMZVE5MnhtSFdCcGRLVzkyU3VtNDVVWnpUeU1lOEhRbzlNZzRzVndIUmpmTm5seVBuekNZa01BCkgxN0R1ano4WFFzUnpodTNrQmtBSStzd0w2eFE5V09xS0lMc200YzVFcGdPZzc4SFNMbEdWc0psc3kycnludlgKNWg4THZYUExnU0cydCtnMEFUUytBRU84dmxzZWNNZitRSkdTSkpuWXlIaUZuWklsaVNudjRLLzl4Nk9SUHZOYQphMEhOOVN3Z053USsrVFBvUlR3RHl3N1ZtR3RNdnV4Z01naGtMUjdNWHVxaGMzclY0THpPTTdweTJTOFdnN1ZyCitKTngrSTdyZDF1cWI3MVZNNDhFVGVBcXVPTTVRd0lHN0lGUTFCUk1SSG5Nck1jdHB4Ky9Fa1huMDcwclVKZWIKVkExdWFtakpPaVhFZDk0cXNaa2szUTJtR1Z5bWh4c1NFa25oNHZmWm42YVdacTBrdWZWSGVsZFJEWExHM3AxMgpCNTg4N1lxdDlRSUpDbXNKWXF1cUtVRmcyTzlNaDJBUmVhR1FUSzBDV3J0eVpoWlc4a0JDYlVQN2ttNXBsdXpJClB0eUdMVTZwb3ZvQmhMQXQxdUtBMS95ZmJUM2x1b3psZGg3RVI1NkxldS9oaGdTL05tMjdraFdmRUxZMmVyT0gKS2ZVQjZjYW1YTlY4eDJ0RG1reCtaL1ZKVld2eFlGUk5ibFd0THE0TlpKa1NmSDd3RndSK2Y0VXJncVZJeEh5OApzZngvbWg3MnJFQzh5WmlwR0tkT2d3a0NBd0VBQWFNMU1ETXdEZ1lEVlIwUEFRSC9CQVFEQWdXZ01CTUdBMVVkCkpRUU1NQW9HQ0NzR0FRVUZCd01DTUF3R0ExVWRFd0VCL3dRQ01BQXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUIKQUhxcHgxZHJZdmV5OExtQWFqS1VqWDU2YnNxSUlyVlBKQ1pudFJNdU16T2pIQk16UXVtZ3QzREpEVWFtTnJXRwp2OFNad0h5YVppRTVLelp0c1ZHWW9zWWxzajNsaEswaWE4dUdodFo5b0gwWjVIcmxUOG1EUGhjRWt6dXdmL2RHCkRzeStRMDVEMkdXMmw3SWIrTW5aQ3R4a3dQZGxsRU94MjRDaHcyMlk0K215U0Y2aHpJNXBLcE9zTDR0ODYyMVYKcEpuMVllVVFnalpCaithTG5ya1FNTENxWGxmMzczdDR6TXVTcDV2TytzMDRxY0ZFNWFDVHRxTTF4RE5oRkRyZQpmRWRSMGhuM2JJVkhEWkllKytEVUlvYlI5TkhNekdjMUZMOS84OVZ3QnJzMUl5NzVUL2NLUlRGeVJLTm1NVXZHCjVwTTQzQkxnZDhoTFV5NC9VMDFHT3dBbXpld0hRODh1dXB2cm9PNWtOZnFqWWpwcmRTTW0vbFpsVWV4UDkzdzAKdncyemhtbkxKd25zN3h6bjhtazZ5dEdReThENVlVaFB6TVZqdGxJNWhNQXlIemVSL09jTU10N3ltYXljd0RTTgpqK3NXNEMxTThXcHNUa1pQd0ZFUFo5M3UycGx0WUJmakFRZDZ2WHhrYWVHL0d3M2g0QzZZa2QrcTc3by9jNWVzCmNXOHBHTTFJeUl1RG5GNGdIMTNCWHRMVmpPTTljTmNyRUhMQmd6UlRSWFkzYlFLamVRc0ZEUzlwVTlTZmdaZmEKSEhaWll0YnlWT3dmRFR6YjI1VnRDbnp5eWdzWWdYbXJDdmNjTVJXVVJFU0wyUlZXMDNac1BHSFZjK0ExVHdlbAppWGJwcm5ZcytnMDlqK21BVUlibmt5ODBYQkZqdDN6UzhjNllNeHUrWFVvYQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+client_key = LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS1FJQkFBS0NBZ0VBMHVRaVFndkVYdG8xM0hkcnpVbVEvTzBycDVSNjZyQ0M3aDkvM0c4Sks4eDlBUUxwCmpmOVZGSnZzY2RXZmhDK0ZpYUszNXp6ZjFaQnhMdEJPMElYMWNBM290NEN1N0xlUTkyeG1IV0JwZEtXOTJTdW0KNDVVWnpUeU1lOEhRbzlNZzRzVndIUmpmTm5seVBuekNZa01BSDE3RHVqejhYUXNSemh1M2tCa0FJK3N3TDZ4UQo5V09xS0lMc200YzVFcGdPZzc4SFNMbEdWc0psc3kycnludlg1aDhMdlhQTGdTRzJ0K2cwQVRTK0FFTzh2bHNlCmNNZitRSkdTSkpuWXlIaUZuWklsaVNudjRLLzl4Nk9SUHZOYWEwSE45U3dnTndRKytUUG9SVHdEeXc3Vm1HdE0KdnV4Z01naGtMUjdNWHVxaGMzclY0THpPTTdweTJTOFdnN1ZyK0pOeCtJN3JkMXVxYjcxVk00OEVUZUFxdU9NNQpRd0lHN0lGUTFCUk1SSG5Nck1jdHB4Ky9Fa1huMDcwclVKZWJWQTF1YW1qSk9pWEVkOTRxc1prazNRMm1HVnltCmh4c1NFa25oNHZmWm42YVdacTBrdWZWSGVsZFJEWExHM3AxMkI1ODg3WXF0OVFJSkNtc0pZcXVxS1VGZzJPOU0KaDJBUmVhR1FUSzBDV3J0eVpoWlc4a0JDYlVQN2ttNXBsdXpJUHR5R0xVNnBvdm9CaExBdDF1S0ExL3lmYlQzbAp1b3psZGg3RVI1NkxldS9oaGdTL05tMjdraFdmRUxZMmVyT0hLZlVCNmNhbVhOVjh4MnREbWt4K1ovVkpWV3Z4CllGUk5ibFd0THE0TlpKa1NmSDd3RndSK2Y0VXJncVZJeEh5OHNmeC9taDcyckVDOHlaaXBHS2RPZ3drQ0F3RUEKQVFLQ0FnRUF2TTlaU0k1bWNwR2xGVXlwN0hMSDUxcWo4ZlpDa2lvVUh3TitveW1hS1dkOEoxS25MZVdERTkrQgpzbTBTMHZNRStMUUJPSHRNMzFUaHNJcjVkVUhwK3pmSXVibnhZcWY2bHpxcXRmUmlsZmZwNEN4dnoyUG5aTk9uCjV3a2dOZnhKZmg1TWdSQ0tqNmZ0dTdwUkFrNkFKcFhlWUxoSExUcEM1NmZ6RVlVQWxpZnp6VXJXZE15VlJJM3IKTGxmRHBqMFRDYXNXNTJwUmFrM0RaY2NtL2pNZ21id0Q4OHRmVUs2UmUxZmViNUg3NWhxL09pSTBQNzhlaUVxTQpjRTU1UXdwOGZoV2htNHM3WTR2TmgxYVBMTEFOck9lT2NNbmYwY0h3YTRhb2xvdmp6WUhyZy9uVkRUNXQ1WDJUCnlyMi9OZCtWU3VHWDZRekJCSmtTU0JZYmJ6SVhoaVlzUVlmd21QYVNJQmdhTHdzcUI5VU41M1pHVXVocXBvVjcKOWxHVVplT1Z5a1U3UjBrOHZkRjFLYmtPQlYwNUpaYjdXOEZkd2MyVWJzOEJDOEtBc1RiSGkvZmNPRElyZ2tqUgpOMDFDN1JpZkUxSjZXTEcyTnVIWUZ1eDVhNEdLYXlYWVFqbGFRYi9IM1puSjRhbTFybXJ4RWI2bjR3cDlmVUVVCkRIa25NNWpEeXN5MXdQTmZNMkJObHA2TWFuS2p2YzF1MThGZG1rWG1kRUFUckJJNHE0TWdsb2FidUVkV2x3OE8KRldaeHh5L0hGdXppeU43UTRsQjJpVE1nd1ZuUkE3ZThqblBEWFppakNYQjltSWF0M1FLZ2pFQU1BdHlVczlFNApFRUhsVTNVSXpLZ2FTcGRYYm5jRm4zeE9lQ0UzZ0E4ZEdVTnBpT3pBRThCM29HKzRCQUVDZ2dFQkFQWFZ3NnZ5ClJEMm5ITDRDNGFYTWVWbCtFUFBkeFBNaEd0bUFrZEw0MkVZNE9GeXpxSVhOdGt1UCtITUNlR1YzcFVaUy95cmYKTTQvelhHaVdsSFRXaU45N0F6QmZCRmlwdmoyVzh2Y2FFVFhISGdXd2hWek0ySUZXVWVLbDJjTzE2dWVXcUl3VwpDSHVId0VIS2xzeFc1aHBQaGt4WmUra2pQcnMvZFdIaTJrY3BzUU9QM2o0ZnZydjY4MHdmZlRpeG1KMGlSa05iClJBd2p5VS92T05QRmpEVnJIcmhjSWpGamF5Q0VvSlZ2TjlMMnJKNVkrUHZTVWZGNDZPS1RIOHdXR291ZGlCYmkKdnpyNVNnUWdreGtWaG9Oa1Y5MzZJWTRZUlpiRXAzbjZIU25vejFybzBoMkhWa2VDcWQxRHdkRForSzg5R21ZSwpSejEvN3lua0tZM3ZWWUVDZ2dFQkFOdWNlbmVYSHBhb290Rlh4d2ZDUmVoTVQwS2dZamJ0REh0Q3VURnBLNVhWCkFyVDJ4QTFBdXlYRGxtRVduQkZzV3B3NUprL1BIQXFEYmtmUXhoMWN5T1N5TnZhd0JiRWNCWU1sMk5Rd0VwdHQKU1UxQ1BDMmthZ2hadjBHS2M0cGRuVFBrc2Z2K3oraUJJcVIxaXFKTE9yenRLdmdidlc0dEVseERwakR4SjQveApuNWVQTFNKb2Rla0NpRy9hNGZ6Tk95S0NOUXVXa2xQaUpZc1V2ckdBK2dyU2FTN2tLY054dit5MWJQOFdlRDB1ClFUZlViZGRlcXVCa1hXeG95Y21pNDB4ZVBmTzdZOGpzdFVHRHJwVVhjU0prdnBXOE5hcUNQa0tXeXkzczNxOXoKWXZCNGlld2dkM1JseDlsSXd3WnR0eHJCMVBnWGtLNUxUQWpYMjFlRVFZa0NnZ0VBQ20yUzYweFBrTDN4L2kxcApIUHRiZW14YWs3Mm9pUmV5WjkrSVVBYTJSZVJFbjhvUEwvM1Y2Y2FscDF0SGVDWm5JR0NNNm1pbGEwbkxkYlJOCmY5ZEozeEQ4eGFTQ0xyQ2tuVUExOWoxbzFYc296dHo2QzBHMVBXZEgrZkZIRjRJMEFMYm5WMm5uMmpXYjlpNTkKenhVd2xaVWlBVU1hZW4xQVAva2xKWTNWN0liY04yWjI2dk8xeDR1Um5uMEhkc3d4eVJpWEdteFlxcHNxQXZZRwoxeFRlS2JYdGk2eDgxdE44eTloVVo0SmNQOXF1MzlpdVZ5QkkwWkZyYjVFR0hFWWp3aUJna1hmMDNLK09jRFpoCmh3TGV2ZHdYemhhNkxhamg2czlVdTF2Y3VOWmpWVnZpN2RXNzF6UzN0K2NUNWFRWlpIV1hGUlVDaUoxUXE5bzkKMlFONkFRS0NBUUFDc2JTKzZ0ZXhPWGhsNFJITUFwSWcrMjZ0ZnBJMTRrcVk2SVNsR29reVdWNmpJYlBlQmNGRwpBVlJDOUtnTmZxck41OVdVZlJIMi93M0hTOFJpYjlUM0dVaWJWaVY3dXNCR2o1eE5YaG1jVm9ianI4QlZQd01kCi94dmRqZmxFNVVrY2JkM1JIWnNuV3c0MXZrdHBHa3NxTGk2c3hJcGFZNnNwL3BwM1Z6NEpBZ25YTGlaN21aUjQKdTFNNUxCSkJxN0xpQlg3cEdYdktFNmdxUUtMbVFwTE90eTRiS1NscUFHYytYQ3R1SmJScjY3bFpHZjRPK2xaVwpVbVRqQTVZV0p5MXFybTFNSkN4aE5xWXltNDcwdlVqaUJ5SmZhK09zcDlSanRMM2hYbHFOQkhsZVFkeFBUVWFwCjR1WEV3S1BEM0d5Mm8xSWRpUXg1VnVzajRLSU1QTThoQW9JQkFRQ1Zua2owNmpYRjl1QjZmdHErQ2tJNXFXbnQKbzlCcFA3Sk9iM1NlQ00zaE5wSk1TYllQNnArb3J2aTFPM2tRT0RxV3IxWlVtR29UdXdTODF6L29ZRHUrZ1RtMApWQkVSN0FyTkNuM0hIaFF5S1E0b1Z0VG1yS2pOVEdLOFVxTS9CQ0NPeDJSRVN3SE5mRFdRWmNaaGJGaDhDaFNECkRhYzduREk0ZE1RajB6U1RZQ1pQTTlxNGRBczVaSGtWVkRNK2czQTE4RWczUGxTZTd2d29UMjBBU0I3K1Rqd0IKT3IxRG5ob2RjWkJsZ0pwSjFjeUVWSUNtVitoQ0N2aDNXcmlySy9tVXVXS2EvcWpJWVE1UUk0TFppS2hFRVVJdQpxcUdDUmViUnZyR2IraVBkbk92OEFqMUgxbVdZWmZoYmlYYXRrZllMUjdVTUFDSm1tS0hNMjVVeUIvVVYKLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K
+cluster_ca_certificate = LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV5akNDQXJLZ0F3SUJBZ0lSQU9oVDhZUzRHNGFlbGNEYVBISFhhd1l3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdJQmNOTWpBd05USTNNRFl5TmpVeVdoZ1BNakExTURBMU1qY3dOak0yTlRKYQpNQTB4Q3pBSkJnTlZCQU1UQW1OaE1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBCnd0Wml2YVpENUFZaURoNGovaVN6V2VrdTRRNVZTSjZad0FNWW9PZ1VrTFBEamRmTXhwM1RNUWhuWG9sdzQ5S20KckZ4ZXJ5VlY3M3owdjByWWErVUJjNi9FMDRUc013QTR5VnpwdGhSVU96SVl0VytTeWdRb1pRV3hLbXh3S3NVTQpUTkZUYTNqZENuNzUzdzVmS09odDd3aCtXK3RzcVpyS21HN2hHQUQ4S09OWHg4UVNBdUllU3RoalBrZC9KRjRqCmxNS0dSdHVNc2NOZkRiL204Z2ZrOFFmMll0WnE2cnVwTmJYYUViOEVIcDlSWENyN25Ha0JpazArY29jUS9ETmkKL05XWmw4T0pFV2RxRzZTT3g0RWliV2ZRdzV5TDJjdzIwc1Vlb3NTSU9VZVp2a1pFdDNWM3dDVE13bGF2OHdmbAp3QnZvcVBjdUp2VFV4RXI2UGtNZVFiNUtGbnp2Ny9GR1dFYTZVS1Q3dll5TnVUNjFMdzVFZXNYcUt5emRpcjJYCkZ6M3ZpZGxzQVZhSTlCblJtQkJKVVNsR0RKVTFlTHVaa3c0KzM2Mk4wVGV5b1NMRUxla3Z3Zjdjbm5aOXZzZ2sKalhXdFd6VDlJV2pjcWNMaVpMcTBCNTRtcy9UbCtSQXBuRlJlaDByWWhQNDBUOUtjcHlBOWhyTWhzamRHV3ptVQpERHpxNFZXekxQblA1RlM0V0ZjbmJQZzVYM1NQOTJCS1dFb2Q2Sjc2VzkxOU16L2JkWGd3QkJlMEJLWG83bkM4CjdJL3lrWWkrSkpIYU01bVUzNXZObVZ3SUEzYnh0cU94ZkI0cGhjS2d1eldkeHdZZldZUkZ4bVBScEFzVkU4aU4KWW1NSjVUcXB5SVBiS2NubERVYkVKTzB6a2ZxeUYwVlpTclpmL0JhQTBZMENBd0VBQWFNak1DRXdEZ1lEVlIwUApBUUgvQkFRREFnS2tNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUJBRStDCnRVMjZkR3prMCsyWE0yLzhTNjRBMDRXZkFoQklpWjZiY1RlU1ZzazBYZFlRY0xQR3lzMElRS1ZmWG5neDIwSVAKRExFekFPWGgzZDF1RitXQzVzaXQwWEJBWDZjOWFic1BPT3QzSFVTSWpVSzJmY3dDMTZGR0o5S0w0ZGRiWUhrdgphK0R2eWxhWGVVaEFCTEFLaktvejlndnMwN2tZOTdCajlONDdyZWRzKzVxcVoySis0ZVpFdnkwenNhVG84aEM4Ck4wTjliYjRiNHRyb1BhTkdSbndUQW9iRGRFY0gzTDNmM29VZVFPN0Q0TVpXYzhuV3JBcUJCOFdCYWlPa2xJNm0KNE5HVFZXU2tLdWJqK1lwMDRadFdmZmxxTWRjZEJTb1k0MVpIaXdXbUltbFp5TFpSdmhYTDQ0dk9QK2pXd1pPMwpNdXNzOUxsdWR3TVRrTDZaMG9tTW1zUllvNlFzK1BlRUI2OG5RSHFneWVLSlFOemJ2NWV4ZDcrOEcwN3c0K3dqCkhVcVBqNXlHOHRmUCtiN2trT1ZTSHJ2b2NnSGdFdGxNa3lrS2lkbHFOUStvSWhSRmdsVkdJd0lUbHM5b2ZMTGMKb3dMc2QrVUVQdlBHd3ZTL2FBZldFM2hPUjFKVjdvT0FLaFB0elNRV3NkN3M3YzVjUTZJUm82Rnd3YURTNnFsTApTZi95M3pKY2NxNEQxYSt6UnVlZDNRcGxoSU8ydzQ3N3MxOUlvVGloV3RrY2pQM2xXNHIwZERTckFGdTZGTWZCCm52d3FFaXlqRW1XUkU4ZXc0VGpZbUFQNThxMnFzeC83QSs1MW1CT0VJQ3V3YUdxang2NmE1R2xMRHM3YUp0cHMKZXBiZkFRWFRvQUE5dmV5dkNMb3ZoeVBwOFFnRXhwbVlsUTA1WDJmOQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+cluster_password = 7ed854e4da79a16b8370feeb52e7e244d4c36f440bd93f0c5049c9117c88b90e9fcaa93f1e4cc47d575a856999bf9f105bc844585986392c2cb128047baf2f0b
+cluster_username = clusterUser_cmbt-tf-aks-rg_cmbt-tf-aks-qa01
+host = https://cmbt-tf-aks-6287f75e.hcp.koreacentral.azmk8s.io:443
+identity_client_id = dda97af5-4740-4286-a3e7-85281721342d
+identity_resource_id = /subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/cmbt-tf-aks-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-poc-identity
+kube_config = apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV5akNDQXJLZ0F3SUJBZ0lSQU9oVDhZUzRHNGFlbGNEYVBISFhhd1l3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdJQmNOTWpBd05USTNNRFl5TmpVeVdoZ1BNakExTURBMU1qY3dOak0yTlRKYQpNQTB4Q3pBSkJnTlZCQU1UQW1OaE1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBCnd0Wml2YVpENUFZaURoNGovaVN6V2VrdTRRNVZTSjZad0FNWW9PZ1VrTFBEamRmTXhwM1RNUWhuWG9sdzQ5S20KckZ4ZXJ5VlY3M3owdjByWWErVUJjNi9FMDRUc013QTR5VnpwdGhSVU96SVl0VytTeWdRb1pRV3hLbXh3S3NVTQpUTkZUYTNqZENuNzUzdzVmS09odDd3aCtXK3RzcVpyS21HN2hHQUQ4S09OWHg4UVNBdUllU3RoalBrZC9KRjRqCmxNS0dSdHVNc2NOZkRiL204Z2ZrOFFmMll0WnE2cnVwTmJYYUViOEVIcDlSWENyN25Ha0JpazArY29jUS9ETmkKL05XWmw4T0pFV2RxRzZTT3g0RWliV2ZRdzV5TDJjdzIwc1Vlb3NTSU9VZVp2a1pFdDNWM3dDVE13bGF2OHdmbAp3QnZvcVBjdUp2VFV4RXI2UGtNZVFiNUtGbnp2Ny9GR1dFYTZVS1Q3dll5TnVUNjFMdzVFZXNYcUt5emRpcjJYCkZ6M3ZpZGxzQVZhSTlCblJtQkJKVVNsR0RKVTFlTHVaa3c0KzM2Mk4wVGV5b1NMRUxla3Z3Zjdjbm5aOXZzZ2sKalhXdFd6VDlJV2pjcWNMaVpMcTBCNTRtcy9UbCtSQXBuRlJlaDByWWhQNDBUOUtjcHlBOWhyTWhzamRHV3ptVQpERHpxNFZXekxQblA1RlM0V0ZjbmJQZzVYM1NQOTJCS1dFb2Q2Sjc2VzkxOU16L2JkWGd3QkJlMEJLWG83bkM4CjdJL3lrWWkrSkpIYU01bVUzNXZObVZ3SUEzYnh0cU94ZkI0cGhjS2d1eldkeHdZZldZUkZ4bVBScEFzVkU4aU4KWW1NSjVUcXB5SVBiS2NubERVYkVKTzB6a2ZxeUYwVlpTclpmL0JhQTBZMENBd0VBQWFNak1DRXdEZ1lEVlIwUApBUUgvQkFRREFnS2tNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUJBRStDCnRVMjZkR3prMCsyWE0yLzhTNjRBMDRXZkFoQklpWjZiY1RlU1ZzazBYZFlRY0xQR3lzMElRS1ZmWG5neDIwSVAKRExFekFPWGgzZDF1RitXQzVzaXQwWEJBWDZjOWFic1BPT3QzSFVTSWpVSzJmY3dDMTZGR0o5S0w0ZGRiWUhrdgphK0R2eWxhWGVVaEFCTEFLaktvejlndnMwN2tZOTdCajlONDdyZWRzKzVxcVoySis0ZVpFdnkwenNhVG84aEM4Ck4wTjliYjRiNHRyb1BhTkdSbndUQW9iRGRFY0gzTDNmM29VZVFPN0Q0TVpXYzhuV3JBcUJCOFdCYWlPa2xJNm0KNE5HVFZXU2tLdWJqK1lwMDRadFdmZmxxTWRjZEJTb1k0MVpIaXdXbUltbFp5TFpSdmhYTDQ0dk9QK2pXd1pPMwpNdXNzOUxsdWR3TVRrTDZaMG9tTW1zUllvNlFzK1BlRUI2OG5RSHFneWVLSlFOemJ2NWV4ZDcrOEcwN3c0K3dqCkhVcVBqNXlHOHRmUCtiN2trT1ZTSHJ2b2NnSGdFdGxNa3lrS2lkbHFOUStvSWhSRmdsVkdJd0lUbHM5b2ZMTGMKb3dMc2QrVUVQdlBHd3ZTL2FBZldFM2hPUjFKVjdvT0FLaFB0elNRV3NkN3M3YzVjUTZJUm82Rnd3YURTNnFsTApTZi95M3pKY2NxNEQxYSt6UnVlZDNRcGxoSU8ydzQ3N3MxOUlvVGloV3RrY2pQM2xXNHIwZERTckFGdTZGTWZCCm52d3FFaXlqRW1XUkU4ZXc0VGpZbUFQNThxMnFzeC83QSs1MW1CT0VJQ3V3YUdxang2NmE1R2xMRHM3YUp0cHMKZXBiZkFRWFRvQUE5dmV5dkNMb3ZoeVBwOFFnRXhwbVlsUTA1WDJmOQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://cmbt-tf-aks-6287f75e.hcp.koreacentral.azmk8s.io:443
+  name: cmbt-tf-aks-qa01
+contexts:
+- context:
+    cluster: cmbt-tf-aks-qa01
+    user: clusterUser_cmbt-tf-aks-rg_cmbt-tf-aks-qa01
+  name: cmbt-tf-aks-qa01
+current-context: cmbt-tf-aks-qa01
+kind: Config
+preferences: {}
+users:
+- name: clusterUser_cmbt-tf-aks-rg_cmbt-tf-aks-qa01
+  user:
+    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvVENDQXVXZ0F3SUJBZ0lSQU1peXRHbzZMZmdOV2RpRjFHVUwvcnN3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdIaGNOTWpBd05USTNNRFl5TmpVeVdoY05Nakl3TlRJM01EWXpOalV5V2pBdwpNUmN3RlFZRFZRUUtFdzV6ZVhOMFpXMDZiV0Z6ZEdWeWN6RVZNQk1HQTFVRUF4TU1iV0Z6ZEdWeVkyeHBaVzUwCk1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBMHVRaVFndkVYdG8xM0hkcnpVbVEKL08wcnA1UjY2ckNDN2g5LzNHOEpLOHg5QVFMcGpmOVZGSnZzY2RXZmhDK0ZpYUszNXp6ZjFaQnhMdEJPMElYMQpjQTNvdDRDdTdMZVE5MnhtSFdCcGRLVzkyU3VtNDVVWnpUeU1lOEhRbzlNZzRzVndIUmpmTm5seVBuekNZa01BCkgxN0R1ano4WFFzUnpodTNrQmtBSStzd0w2eFE5V09xS0lMc200YzVFcGdPZzc4SFNMbEdWc0psc3kycnludlgKNWg4THZYUExnU0cydCtnMEFUUytBRU84dmxzZWNNZitRSkdTSkpuWXlIaUZuWklsaVNudjRLLzl4Nk9SUHZOYQphMEhOOVN3Z053USsrVFBvUlR3RHl3N1ZtR3RNdnV4Z01naGtMUjdNWHVxaGMzclY0THpPTTdweTJTOFdnN1ZyCitKTngrSTdyZDF1cWI3MVZNNDhFVGVBcXVPTTVRd0lHN0lGUTFCUk1SSG5Nck1jdHB4Ky9Fa1huMDcwclVKZWIKVkExdWFtakpPaVhFZDk0cXNaa2szUTJtR1Z5bWh4c1NFa25oNHZmWm42YVdacTBrdWZWSGVsZFJEWExHM3AxMgpCNTg4N1lxdDlRSUpDbXNKWXF1cUtVRmcyTzlNaDJBUmVhR1FUSzBDV3J0eVpoWlc4a0JDYlVQN2ttNXBsdXpJClB0eUdMVTZwb3ZvQmhMQXQxdUtBMS95ZmJUM2x1b3psZGg3RVI1NkxldS9oaGdTL05tMjdraFdmRUxZMmVyT0gKS2ZVQjZjYW1YTlY4eDJ0RG1reCtaL1ZKVld2eFlGUk5ibFd0THE0TlpKa1NmSDd3RndSK2Y0VXJncVZJeEh5OApzZngvbWg3MnJFQzh5WmlwR0tkT2d3a0NBd0VBQWFNMU1ETXdEZ1lEVlIwUEFRSC9CQVFEQWdXZ01CTUdBMVVkCkpRUU1NQW9HQ0NzR0FRVUZCd01DTUF3R0ExVWRFd0VCL3dRQ01BQXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUIKQUhxcHgxZHJZdmV5OExtQWFqS1VqWDU2YnNxSUlyVlBKQ1pudFJNdU16T2pIQk16UXVtZ3QzREpEVWFtTnJXRwp2OFNad0h5YVppRTVLelp0c1ZHWW9zWWxzajNsaEswaWE4dUdodFo5b0gwWjVIcmxUOG1EUGhjRWt6dXdmL2RHCkRzeStRMDVEMkdXMmw3SWIrTW5aQ3R4a3dQZGxsRU94MjRDaHcyMlk0K215U0Y2aHpJNXBLcE9zTDR0ODYyMVYKcEpuMVllVVFnalpCaithTG5ya1FNTENxWGxmMzczdDR6TXVTcDV2TytzMDRxY0ZFNWFDVHRxTTF4RE5oRkRyZQpmRWRSMGhuM2JJVkhEWkllKytEVUlvYlI5TkhNekdjMUZMOS84OVZ3QnJzMUl5NzVUL2NLUlRGeVJLTm1NVXZHCjVwTTQzQkxnZDhoTFV5NC9VMDFHT3dBbXpld0hRODh1dXB2cm9PNWtOZnFqWWpwcmRTTW0vbFpsVWV4UDkzdzAKdncyemhtbkxKd25zN3h6bjhtazZ5dEdReThENVlVaFB6TVZqdGxJNWhNQXlIemVSL09jTU10N3ltYXljd0RTTgpqK3NXNEMxTThXcHNUa1pQd0ZFUFo5M3UycGx0WUJmakFRZDZ2WHhrYWVHL0d3M2g0QzZZa2QrcTc3by9jNWVzCmNXOHBHTTFJeUl1RG5GNGdIMTNCWHRMVmpPTTljTmNyRUhMQmd6UlRSWFkzYlFLamVRc0ZEUzlwVTlTZmdaZmEKSEhaWll0YnlWT3dmRFR6YjI1VnRDbnp5eWdzWWdYbXJDdmNjTVJXVVJFU0wyUlZXMDNac1BHSFZjK0ExVHdlbAppWGJwcm5ZcytnMDlqK21BVUlibmt5ODBYQkZqdDN6UzhjNllNeHUrWFVvYQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS1FJQkFBS0NBZ0VBMHVRaVFndkVYdG8xM0hkcnpVbVEvTzBycDVSNjZyQ0M3aDkvM0c4Sks4eDlBUUxwCmpmOVZGSnZzY2RXZmhDK0ZpYUszNXp6ZjFaQnhMdEJPMElYMWNBM290NEN1N0xlUTkyeG1IV0JwZEtXOTJTdW0KNDVVWnpUeU1lOEhRbzlNZzRzVndIUmpmTm5seVBuekNZa01BSDE3RHVqejhYUXNSemh1M2tCa0FJK3N3TDZ4UQo5V09xS0lMc200YzVFcGdPZzc4SFNMbEdWc0psc3kycnludlg1aDhMdlhQTGdTRzJ0K2cwQVRTK0FFTzh2bHNlCmNNZitRSkdTSkpuWXlIaUZuWklsaVNudjRLLzl4Nk9SUHZOYWEwSE45U3dnTndRKytUUG9SVHdEeXc3Vm1HdE0KdnV4Z01naGtMUjdNWHVxaGMzclY0THpPTTdweTJTOFdnN1ZyK0pOeCtJN3JkMXVxYjcxVk00OEVUZUFxdU9NNQpRd0lHN0lGUTFCUk1SSG5Nck1jdHB4Ky9Fa1huMDcwclVKZWJWQTF1YW1qSk9pWEVkOTRxc1prazNRMm1HVnltCmh4c1NFa25oNHZmWm42YVdacTBrdWZWSGVsZFJEWExHM3AxMkI1ODg3WXF0OVFJSkNtc0pZcXVxS1VGZzJPOU0KaDJBUmVhR1FUSzBDV3J0eVpoWlc4a0JDYlVQN2ttNXBsdXpJUHR5R0xVNnBvdm9CaExBdDF1S0ExL3lmYlQzbAp1b3psZGg3RVI1NkxldS9oaGdTL05tMjdraFdmRUxZMmVyT0hLZlVCNmNhbVhOVjh4MnREbWt4K1ovVkpWV3Z4CllGUk5ibFd0THE0TlpKa1NmSDd3RndSK2Y0VXJncVZJeEh5OHNmeC9taDcyckVDOHlaaXBHS2RPZ3drQ0F3RUEKQVFLQ0FnRUF2TTlaU0k1bWNwR2xGVXlwN0hMSDUxcWo4ZlpDa2lvVUh3TitveW1hS1dkOEoxS25MZVdERTkrQgpzbTBTMHZNRStMUUJPSHRNMzFUaHNJcjVkVUhwK3pmSXVibnhZcWY2bHpxcXRmUmlsZmZwNEN4dnoyUG5aTk9uCjV3a2dOZnhKZmg1TWdSQ0tqNmZ0dTdwUkFrNkFKcFhlWUxoSExUcEM1NmZ6RVlVQWxpZnp6VXJXZE15VlJJM3IKTGxmRHBqMFRDYXNXNTJwUmFrM0RaY2NtL2pNZ21id0Q4OHRmVUs2UmUxZmViNUg3NWhxL09pSTBQNzhlaUVxTQpjRTU1UXdwOGZoV2htNHM3WTR2TmgxYVBMTEFOck9lT2NNbmYwY0h3YTRhb2xvdmp6WUhyZy9uVkRUNXQ1WDJUCnlyMi9OZCtWU3VHWDZRekJCSmtTU0JZYmJ6SVhoaVlzUVlmd21QYVNJQmdhTHdzcUI5VU41M1pHVXVocXBvVjcKOWxHVVplT1Z5a1U3UjBrOHZkRjFLYmtPQlYwNUpaYjdXOEZkd2MyVWJzOEJDOEtBc1RiSGkvZmNPRElyZ2tqUgpOMDFDN1JpZkUxSjZXTEcyTnVIWUZ1eDVhNEdLYXlYWVFqbGFRYi9IM1puSjRhbTFybXJ4RWI2bjR3cDlmVUVVCkRIa25NNWpEeXN5MXdQTmZNMkJObHA2TWFuS2p2YzF1MThGZG1rWG1kRUFUckJJNHE0TWdsb2FidUVkV2x3OE8KRldaeHh5L0hGdXppeU43UTRsQjJpVE1nd1ZuUkE3ZThqblBEWFppakNYQjltSWF0M1FLZ2pFQU1BdHlVczlFNApFRUhsVTNVSXpLZ2FTcGRYYm5jRm4zeE9lQ0UzZ0E4ZEdVTnBpT3pBRThCM29HKzRCQUVDZ2dFQkFQWFZ3NnZ5ClJEMm5ITDRDNGFYTWVWbCtFUFBkeFBNaEd0bUFrZEw0MkVZNE9GeXpxSVhOdGt1UCtITUNlR1YzcFVaUy95cmYKTTQvelhHaVdsSFRXaU45N0F6QmZCRmlwdmoyVzh2Y2FFVFhISGdXd2hWek0ySUZXVWVLbDJjTzE2dWVXcUl3VwpDSHVId0VIS2xzeFc1aHBQaGt4WmUra2pQcnMvZFdIaTJrY3BzUU9QM2o0ZnZydjY4MHdmZlRpeG1KMGlSa05iClJBd2p5VS92T05QRmpEVnJIcmhjSWpGamF5Q0VvSlZ2TjlMMnJKNVkrUHZTVWZGNDZPS1RIOHdXR291ZGlCYmkKdnpyNVNnUWdreGtWaG9Oa1Y5MzZJWTRZUlpiRXAzbjZIU25vejFybzBoMkhWa2VDcWQxRHdkRForSzg5R21ZSwpSejEvN3lua0tZM3ZWWUVDZ2dFQkFOdWNlbmVYSHBhb290Rlh4d2ZDUmVoTVQwS2dZamJ0REh0Q3VURnBLNVhWCkFyVDJ4QTFBdXlYRGxtRVduQkZzV3B3NUprL1BIQXFEYmtmUXhoMWN5T1N5TnZhd0JiRWNCWU1sMk5Rd0VwdHQKU1UxQ1BDMmthZ2hadjBHS2M0cGRuVFBrc2Z2K3oraUJJcVIxaXFKTE9yenRLdmdidlc0dEVseERwakR4SjQveApuNWVQTFNKb2Rla0NpRy9hNGZ6Tk95S0NOUXVXa2xQaUpZc1V2ckdBK2dyU2FTN2tLY054dit5MWJQOFdlRDB1ClFUZlViZGRlcXVCa1hXeG95Y21pNDB4ZVBmTzdZOGpzdFVHRHJwVVhjU0prdnBXOE5hcUNQa0tXeXkzczNxOXoKWXZCNGlld2dkM1JseDlsSXd3WnR0eHJCMVBnWGtLNUxUQWpYMjFlRVFZa0NnZ0VBQ20yUzYweFBrTDN4L2kxcApIUHRiZW14YWs3Mm9pUmV5WjkrSVVBYTJSZVJFbjhvUEwvM1Y2Y2FscDF0SGVDWm5JR0NNNm1pbGEwbkxkYlJOCmY5ZEozeEQ4eGFTQ0xyQ2tuVUExOWoxbzFYc296dHo2QzBHMVBXZEgrZkZIRjRJMEFMYm5WMm5uMmpXYjlpNTkKenhVd2xaVWlBVU1hZW4xQVAva2xKWTNWN0liY04yWjI2dk8xeDR1Um5uMEhkc3d4eVJpWEdteFlxcHNxQXZZRwoxeFRlS2JYdGk2eDgxdE44eTloVVo0SmNQOXF1MzlpdVZ5QkkwWkZyYjVFR0hFWWp3aUJna1hmMDNLK09jRFpoCmh3TGV2ZHdYemhhNkxhamg2czlVdTF2Y3VOWmpWVnZpN2RXNzF6UzN0K2NUNWFRWlpIV1hGUlVDaUoxUXE5bzkKMlFONkFRS0NBUUFDc2JTKzZ0ZXhPWGhsNFJITUFwSWcrMjZ0ZnBJMTRrcVk2SVNsR29reVdWNmpJYlBlQmNGRwpBVlJDOUtnTmZxck41OVdVZlJIMi93M0hTOFJpYjlUM0dVaWJWaVY3dXNCR2o1eE5YaG1jVm9ianI4QlZQd01kCi94dmRqZmxFNVVrY2JkM1JIWnNuV3c0MXZrdHBHa3NxTGk2c3hJcGFZNnNwL3BwM1Z6NEpBZ25YTGlaN21aUjQKdTFNNUxCSkJxN0xpQlg3cEdYdktFNmdxUUtMbVFwTE90eTRiS1NscUFHYytYQ3R1SmJScjY3bFpHZjRPK2xaVwpVbVRqQTVZV0p5MXFybTFNSkN4aE5xWXltNDcwdlVqaUJ5SmZhK09zcDlSanRMM2hYbHFOQkhsZVFkeFBUVWFwCjR1WEV3S1BEM0d5Mm8xSWRpUXg1VnVzajRLSU1QTThoQW9JQkFRQ1Zua2owNmpYRjl1QjZmdHErQ2tJNXFXbnQKbzlCcFA3Sk9iM1NlQ00zaE5wSk1TYllQNnArb3J2aTFPM2tRT0RxV3IxWlVtR29UdXdTODF6L29ZRHUrZ1RtMApWQkVSN0FyTkNuM0hIaFF5S1E0b1Z0VG1yS2pOVEdLOFVxTS9CQ0NPeDJSRVN3SE5mRFdRWmNaaGJGaDhDaFNECkRhYzduREk0ZE1RajB6U1RZQ1pQTTlxNGRBczVaSGtWVkRNK2czQTE4RWczUGxTZTd2d29UMjBBU0I3K1Rqd0IKT3IxRG5ob2RjWkJsZ0pwSjFjeUVWSUNtVitoQ0N2aDNXcmlySy9tVXVXS2EvcWpJWVE1UUk0TFppS2hFRVVJdQpxcUdDUmViUnZyR2IraVBkbk92OEFqMUgxbVdZWmZoYmlYYXRrZllMUjdVTUFDSm1tS0hNMjVVeUIvVVYKLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K
+    token: 7ed854e4da79a16b8370feeb52e7e244d4c36f440bd93f0c5049c9117c88b90e9fcaa93f1e4cc47d575a856999bf9f105bc844585986392c2cb128047baf2f0b
+yonghp@yonghpbook01:~/work/SK/commbot/terraform$  
