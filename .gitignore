@@ -1,0 +1,5 @@
+.terraform/
+*.swp
+out.plan
+*.plan
+*.tfstate
