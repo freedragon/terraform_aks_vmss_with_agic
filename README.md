@@ -66,3 +66,4 @@ helm install ingress-azure \
 
 [create-sp]: https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest "Create an Azure service principal with the Azure CLI"
 
+[aad-pod]: https://github.com/Azure/aad-pod-identity "AAD Pod Identity"
