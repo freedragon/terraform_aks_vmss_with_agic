@@ -25,7 +25,7 @@ Even though we have official tutorials to deploy AKS cluster with AGIC and terra
 
 ```
 # Intialize terraform
-terraform init -backend-config="storage_account_name=_<Storage Account Name>" -backend-config="container_name=tfstate" -backend-config="access_key=_<Storage Account Key>" -backend-config="key=cmbt-tf-aks.microsoft.tfstate"
+terraform init -backend-config="storage_account_name=_<Storage Account Name>_" -backend-config="container_name=tfstate" -backend-config="access_key=_<Storage Account Key>_" -backend-config="key=cmbt-tf-aks.microsoft.tfstate"
 
 # Planning deployment
 terraform plan -out out.plan
@@ -51,18 +51,15 @@ helm install ingress-azure \
 
 * **References:**
 
-[tutorial]: https://docs.microsoft.com/en-us/azure/developer/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress
-**Tutorial: Create an Application Gateway ingress controller in Azure Kubernetes Service**
+[tutorial]: https://docs.microsoft.com/en-us/azure/developer/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress "Tutorial: Create an Application Gateway ingress controller in Azure Kubernetes Service"
 
-[storage-setup]: https://docs.microsoft.com/en-us/azure/developer/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress#configure-azure-storage-to-store-terraform-state
-**Configure Azure storage to store Terraform state**  
+[storage-setup]: https://docs.microsoft.com/en-us/azure/developer/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress#configure-azure-storage-to-store-terraform-state "Configure Azure storage to store Terraform state"
 
-[tf-vmss]: https://www.danielstechblog.io/terraform-working-with-aks-multiple-node-pools-in-tf-azure-provider-version-1-37/
-**Terraform – Working with AKS multiple node pools in TF Azure provider version 1.37**
+[tf-vmss]: https://www.danielstechblog.io/terraform-working-with-aks-multiple-node-pools-in-tf-azure-provider-version-1-37/ "Terraform – Working with AKS multiple node pools in TF Azure provider version 1.37"
 
-[config-tf]: https://docs.microsoft.com/en-us/azure/developer/terraform/install-configure
+[config-tf]: https://docs.microsoft.com/en-us/azure/developer/terraform/install-configure "Quickstart: Install and configure Terraform to provision Azure resources"
 
-[create-rg]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups
+[create-rg]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups "Manage Azure Resource Manager resource groups by using the Azure portal"
 
-[create-sp]: https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
+[create-sp]: https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest "Create an Azure service principal with the Azure CLI"
 
