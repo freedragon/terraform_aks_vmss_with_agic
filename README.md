@@ -33,6 +33,9 @@ terraform plan -out out.plan
 # Execute deployment
 terraform apply "out.plan"
 
+az aks get-credentials -g $(reource_group_name) -n $(cluster_name)
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+
 # Print out the result of deployment related to identity assignment.
 echo "$(terraform output identity_resource_id)"
 echo "$(terraform output identity_client_id)"

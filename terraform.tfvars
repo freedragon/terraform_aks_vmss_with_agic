@@ -3,12 +3,12 @@
 #
 resource_group_name                 = "cmbt-tf-aks01-rg"
 location                            = "koreancentral"
-aks_service_principal_app_id        = "<sp_app_id>"
-aks_service_principal_client_secret = "<sp_client_secret>"
-aks_service_principal_object_id     = "<sp_object_id>"
+aks_service_principal_app_id        = "947593ca-3295-4af2-b0a7-6bafcc210f7c"
+aks_service_principal_client_secret = "96e3bf9a-6d72-4910-be30-b6f6f73a6bec"
+aks_service_principal_object_id     = "aeb0d2fe-5dcd-4ba1-8d67-ea52c662e56d"
 
-azurerm_user_assigned_identity_name = "cmbt-tf-aks02-id"
-azurerm_user_assigned_nrg_identity_name = "cmbt-tf-aks02-nrg-id"
+azurerm_user_assigned_identity_name = "cmbt-tf-aks03-id"
+azurerm_user_assigned_nrg_identity_name = "cmbt-tf-aks03-nrg-id"
 
 virtual_network_name                = "cmbt-tf-poc-vnet"
 virtual_network_address_prefix      = "123.0.0.0/8"

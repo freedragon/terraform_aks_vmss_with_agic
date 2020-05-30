@@ -35,8 +35,8 @@ appgw:
 # To get identityClientID: echo "$(terraform output identity_client_id)"
 armAuth:
     type: aadPodIdentity
-    identityResourceID: /subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/cmbt-tf-aks01-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-aks01-id
-    identityClientID:  b63258f1-6247-43e7-8c7d-70362cf91e8d
+    identityResourceID: /subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/MC_cmbt-tf-aks01-rg_cmbt-tf-aks-qa02_koreacentral/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-aks03-nrg-id
+    identityClientID: ece67a4f-3ccf-4626-8af0-a40600d2a8e4
 
 ## Alternatively you can use Service Principal credentials
 # armAuth:

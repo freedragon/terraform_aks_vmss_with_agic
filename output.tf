@@ -35,3 +35,11 @@ output "identity_client_id" {
     value = azurerm_user_assigned_identity.clusterIdentity.client_id
 }
 
+output "nrg_identity_resource_id" {
+    value = azurerm_user_assigned_identity.clusterNodeRGIdentity.id
+}
+
+output "nrg_identity_client_id" {
+    value = azurerm_user_assigned_identity.clusterNodeRGIdentity.client_id
+}
+
