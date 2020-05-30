@@ -25,7 +25,7 @@ Even though we have official tutorials to deploy AKS cluster with AGIC and terra
 
 ```
 # Intialize terraform
-terraform init -backend-config="storage_account_name=yonghptrfmstrg" -backend-config="container_name=tfstate" -backend-config="access_key=gokQlYx+dQfJ1pL4mKuxUck9DWUyXSZlRjyd1zXnNPAlFt7UlSZRZ3eZsQudB/oWpjlVo1X+g4IW7VtUhDFoiQ==" -backend-config="key=cmbt-tf-aks.microsoft.tfstate"
+terraform init -backend-config="storage_account_name=_<Storage Account Name>" -backend-config="container_name=tfstate" -backend-config="access_key=_<Storage Account Key>" -backend-config="key=cmbt-tf-aks.microsoft.tfstate"
 
 # Planning deployment
 terraform plan -out out.plan
