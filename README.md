@@ -46,6 +46,10 @@ echo "$(terraform output identity_client_id)"
 * **AGIC Helm Chart Install (from Cloud shell with K8S version > 1.16.x):**
 
 ```
+# apply AAD Pod Identity related K8S resources
+kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+
+# Install ingress-controller using AGIC with helm chart.
 helm install ingress-azure \
   -f helm-config.yaml \
   application-gateway-kubernetes-ingress/ingress-azure \
