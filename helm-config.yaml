@@ -9,7 +9,7 @@ verbosityLevel: 5
 appgw:
     subscriptionId: eb9eeefb-3029-4cda-b478-ab3dcbe7476c
     resourceGroup: cmbt-tf-aks01-rg
-    name: cmbt-tf-apgw
+    name: cmbt-tf-apgw01
     usePrivateIP: false
 
     # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
@@ -35,8 +35,9 @@ appgw:
 # To get identityClientID: echo "$(terraform output identity_client_id)"
 armAuth:
     type: aadPodIdentity
-    identityResourceID: /subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/MC_cmbt-tf-aks01-rg_cmbt-tf-aks-qa02_koreacentral/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-aks03-nrg-id
-    identityClientID: ece67a4f-3ccf-4626-8af0-a40600d2a8e4
+    identityResourceID: /subscriptions/eb9eeefb-3029-4cda-b478-ab3dcbe7476c/resourcegroups/cmbt-tf-aks01-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmbt-tf-aks03-id
+    # identityClientID: 7e081394-b4d9-405a-9337-8fd57be7c524
+    identityClientID: 207da533-56e2-40f5-8143-f1a11d7e6b33
 
 ## Alternatively you can use Service Principal credentials
 # armAuth:
