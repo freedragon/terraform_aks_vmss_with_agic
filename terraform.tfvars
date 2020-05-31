@@ -31,7 +31,7 @@ aks_agent_os_disk_size              = 256
 aks_agent_count                     = 3
 aks_agent_vm_size                   = "Standard_D3_v2"
 
-vm_user_name                        = "yonghp"
+vm_user_name                        = "adminuser"
 public_ssh_key_path                 = "~/.ssh/id_rsa.pub"
 
 tags = {
